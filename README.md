@@ -2,7 +2,7 @@
 We all have leftover ingredients in our fridge that are doomed for disposal, despite our best intentions. Reduce.Reuse.RECIPE provides an environmentally friendly alternative for these odds and ends. Users input multiple leftover ingredients that they hope to utilize, and the app provides a list of potential recipes. Users gain points every time they use a recipe, and the application keeps track of the users with the most points on a scoreboard.
 
 # Design
-![application design](IMG_8408.heic)
+![application design](Startup_Design.png)
 
 # Key Features:
 - Individual login
