@@ -26,11 +26,11 @@ We all have leftover ingredients in our fridge that are doomed for disposal, des
 
 I built out the structure of my application using HTML.
 
-- [x] **HTML pages** - Four HTML pages that represent the ability to login and vote.
-- [x] **Links** - The login page automatically links to the recipes page. Each page also has a link to my Github.
-- [x] **Text** - Text is displayed on each page, with a description on my About, placeholder text for each recipe, and placeholder users on my leaderboard.
+- [ ] **HTML pages** - Four HTML pages that represent the ability to login and vote.
+- [ ] **Links** - The login page automatically links to the recipes page. Each page also has a link to my Github.
+- [ ] **Text** - Text is displayed on each page, with a description on my About, placeholder text for each recipe, and placeholder users on my leaderboard.
 - [ ] **Images** - A wonderful recipe image is displayed on my About page.
-- [x] **DB/Login** - Input box and submit button for login. The voting choices represent data pulled from the database.
-- [x] **WebSocket** - The leaderboard page has a realtime scoreboard, which will eventually update when users choose a recipe.
+- [ ] **DB/Login** - Input box and submit button for login. The voting choices represent data pulled from the database.
+- [ ] **WebSocket** - The leaderboard page has a realtime scoreboard, which will eventually update when users choose a recipe.
 
 ** All of my Github commits are really close together in time because I couldn't deploy files to my website or commit changes to Github until yesterday (9/27) 😫
