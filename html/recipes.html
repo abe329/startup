@@ -21,8 +21,24 @@
         <input type="text" id="ingredients" placeholder="e.g., tomato, cheese, bread" required />
         <button type="submit">Find Recipes</button>
       </form>
-      <div id="recipeResults">
-        <!-- Recipe results will be populated here by JavaScript -->
+
+      <!-- Placeholder for API-generated recipes -->
+      <div id="api-generated-recipes">
+          <h2>Generated Recipes</h2>
+          <div id="loading" style="display: none;">Loading recipes...</div>
+          <div id="recipe-list">
+          <!-- Placeholder for generated recipes -->
+          <div class="recipe-placeholder">
+              <h3>Recipe Title</h3>
+              <p>Ingredients: Placeholder ingredients</p>
+              <p>Instructions: Placeholder instructions</p>
+          </div>
+          <div class="recipe-placeholder">
+              <h3>Another Recipe</h3>
+              <p>Ingredients: More placeholder ingredients</p>
+              <p>Instructions: More placeholder instructions</p>
+          </div>
+        </div>
       </div>
     </main>
 
