@@ -47,14 +47,23 @@
     </main>
 
     <footer>
-        <div id="score-counter" style="text-align:center; margin-top: 20px;">
-          <h2>Your Score: <span id="current-score">0</span></h2>
+        <div id="user-stats" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <div id="player-info">
+            <span>Player: </span>
+            <span id="player-username">Username</span>
+          </div>
+          <div id="score-counter">
+            <span>Your Score: </span>
+            <span id="current-score">0</span>
+          </div>
         </div>
         <hr />
-        <span class="text-reset">@Abe Hull</span>
+        <span class="text-reset">Abe Hull</span>
         <br />
         <a href="https://github.com/abe329">GitHub</a>
     </footer>
+
+
     <script src="app.js"></script>
   </body>
 </html>
