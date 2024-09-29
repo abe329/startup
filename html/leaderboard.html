@@ -8,40 +8,78 @@
   </head>
   <body>
     <header>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Reduce.Reuse.RECIPE - Recipes</title>
-        <link rel="stylesheet" href="styles.css" />
+        <h1>Reduce.Reuse.RECIPE</h1>
+        <nav>
+          <menu>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+          </menu>
+        </nav>
+        <hr />
     </header>
 
     <main>
       <h1>Leaderboard</h1>
-      <table id="leaderboardTable">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>User</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1.</td>
-            <td>David Goggins</td>
-            <td>235</td>
-          </tr>
-          <tr>
-            <td>2.</td>
-            <td>Camden Thurman</td>
-            <td>190</td>
-          </tr>
-          <tr></tr>
-            <td>3.</td>
-            <td>John</td>
-            <td>165</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="content-wrapper"></div>
+        <div class="leaderboard-section">
+          <table id="leaderboardTable">
+            <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>User</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td>
+                  <td>Ralph</td>
+                  <td>1200</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>CamdenThurman</td>
+                  <td>950</td>
+                </tr>
+                <tr></tr>
+                  <td>3.</td>
+                  <td>John</td>
+                  <td>640</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+        
+        <div class="websocket-section">
+          <div id="websocket-updates">
+            <h2>Live Score Updates</h2>
+            <ul id="score-feed">
+              <li class="score-update">
+                <span class="timestamp">10:15 AM</span>
+                <span class="username">Ralph</span> used a recipe and gained 80 points. New score: 1200
+              </li>
+              <li class="score-update">
+                <span class="timestamp">10:12 AM</span>
+                <span class="username">CamdenThurman</span> used a recipe and gained 75 points. New score: 950
+              </li>
+              <li class="score-update">
+                <span class="timestamp">10:08 AM</span>
+                <span class="username">John</span> used a recipe and gained 60 points. New score: 640
+              </li>
+              <li class="score-update">
+                <span class="timestamp">10:05 AM</span>
+                <span class="username">CamdenThurman</span> used a recipe and gained 55 points. New score: 875
+              </li>
+              <li class="score-update">
+                <span class="timestamp">10:01 AM</span>
+                <span class="username">Ralph</span> used a recipe and gained 70 points. New score: 1120
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
