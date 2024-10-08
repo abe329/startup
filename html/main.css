@@ -15,18 +15,17 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   height: 100%;
+  background-color: #afdde5;
 }
 
 /* Header styles */
 header {
-  background-color: #0fa4af;
   padding: 20px 0;
   text-align: center;
 }
 
 header h1 {
   color: #964734;
-  background-color: #0fa4af;
 }
 
 nav menu {
@@ -44,9 +43,14 @@ nav menu li a {
   color: #003135;
 }
 
+main {
+  background-color: #afdde5;
+  padding-bottom: 30px;
+}
+
 /* Footer styles */
 footer {
-  margin-top: 30px;
+  margin-top: 0;
   text-align: center;
   background-color: #0fa4af;
   padding: 20px 0;
@@ -89,4 +93,9 @@ h1, h2 {
 .text-reset {
   color: #964734;
   text-decoration: none;
+  background-color: #0fa4af;
+}
+
+.Github {
+  background-color: #0fa4af;
 }
