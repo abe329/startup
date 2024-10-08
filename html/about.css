@@ -1,0 +1,11 @@
+/* Additional styles for about page */
+.picture-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+main p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}

@@ -1,0 +1,92 @@
+/* Main CSS Stylesheet */
+
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #afdde5;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* Header styles */
+header {
+  background-color: #0fa4af;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: #964734;
+  background-color: #0fa4af;
+}
+
+nav menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav menu li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav menu li a {
+  text-decoration: none;
+  color: #003135;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  background-color: #0fa4af;
+  padding: 20px 0;
+}
+
+/* Button styles */
+button {
+  background-color: #964734;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #56271b;
+  cursor: grab;
+}
+
+/* Form styles */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+/* General spacing */
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-reset {
+  color: #964734;
+  text-decoration: none;
+}

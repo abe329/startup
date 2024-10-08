@@ -1,0 +1,23 @@
+#ingredientForm {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+#recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-placeholder {
+    width: 300px;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.use-recipe-btn {
+    width: 100%;
+    margin-top: 10px;
+}

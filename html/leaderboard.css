@@ -1,0 +1,28 @@
+/* Additional styles for leaderboard page */
+.leaderboard-section {
+  margin-top: 30px;
+}
+
+#leaderboardTable {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.websocket-section {
+  margin-top: 30px;
+}
+
+#score-feed {
+  list-style-type: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.score-update {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
