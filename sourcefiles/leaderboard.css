@@ -27,7 +27,17 @@
   border-radius: 5px;
 }
 
+.timestamp {
+  font-style: italic;
+  color: #0fa4af;
+}
+
 .username {
   font-weight: bold;
   background-color: #f8f9fa;
+}
+
+.score {
+  font-weight: bold;
+  color: #964734;
 }
