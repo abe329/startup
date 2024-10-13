@@ -33,4 +33,14 @@ I built out the structure of my application using HTML.
 - [ ] **DB/Login** - Input box and submit button for login. The voting choices represent data pulled from the database.
 - [ ] **WebSocket** - The leaderboard page has a realtime scoreboard, which will eventually update when users choose a recipe.
 
-** All of my Github commits are really close together in time because I couldn't deploy files to my website or commit changes to Github until yesterday (9/27) 😫
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- [ ] **Header, footer, and main content body**
+- [ ] **Navigation elements** - I used display flex and put the nav in a row in the center.
+- [ ] **Responsive to window resizing** - My app looks PHENOMENAL on devices of all sizes.
+- [ ] **Application elements** - Used really good contrast and whitespace (except for it's blue, not white).
+- [ ] **Application text content** - Consistent fonts
+- [ ] **Application images** - I changed the sizing of my image and centered it.
