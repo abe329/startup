@@ -26,21 +26,21 @@ We all have leftover ingredients in our fridge that are doomed for disposal, des
 
 I built out the structure of my application using HTML.
 
-- [ ] **HTML pages** - Four HTML pages that represent the ability to login and vote.
-- [ ] **Links** - The login page automatically links to the recipes page. Each page also has a link to my Github.
-- [ ] **Text** - Text is displayed on each page, with a description on my About, placeholder text for each recipe, and placeholder users on my leaderboard.
-- [ ] **Images** - A wonderful recipe image is displayed on my About page.
-- [ ] **DB/Login** - Input box and submit button for login. The voting choices represent data pulled from the database.
-- [ ] **WebSocket** - The leaderboard page has a realtime scoreboard, which will eventually update when users choose a recipe.
+- [x] **HTML pages** - Four HTML pages that represent the ability to login and vote.
+- [x] **Links** - The login page automatically links to the recipes page. Each page also has a link to my Github.
+- [x] **Text** - Text is displayed on each page, with a description on my About, placeholder text for each recipe, and placeholder users on my leaderboard.
+- [x] **Images** - A wonderful recipe image is displayed on my About page.
+- [x] **DB/Login** - Input box and submit button for login. The voting choices represent data pulled from the database.
+- [x] **WebSocket** - The leaderboard page has a realtime scoreboard, which will eventually update when users choose a recipe.
 
 
 ## CSS deliverable
 
 For this deliverable I properly styled the application into its final appearance.
 
-- [ ] **Header, footer, and main content body**
-- [ ] **Navigation elements** - I used display flex and put the nav in a row in the center.
-- [ ] **Responsive to window resizing** - My app looks PHENOMENAL on devices of all sizes.
-- [ ] **Application elements** - Used really good contrast and whitespace (except for it's blue, not white).
-- [ ] **Application text content** - Consistent fonts
-- [ ] **Application images** - I changed the sizing of my image and centered it.
+- [x] **Header, footer, and main content body**
+- [x] **Navigation elements** - I used display flex and put the nav in a row in the center.
+- [x] **Responsive to window resizing** - My app looks PHENOMENAL on devices of all sizes.
+- [x] **Application elements** - Used really good contrast and whitespace (except for it's blue, not white).
+- [x] **Application text content** - Consistent fonts
+- [x] **Application images** - I changed the sizing of my image and centered it.
