@@ -98,6 +98,14 @@ form div {
   margin-bottom: 15px;
 }
 
+/* Picture styles */
+.picture-box img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* General spacing */
 h1, h2 {
   margin-bottom: 20px;
@@ -135,6 +143,11 @@ h1, h2 {
   form {
     max-width: 100%;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -149,5 +162,10 @@ h1, h2 {
   button {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
