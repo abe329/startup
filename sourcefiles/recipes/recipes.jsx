@@ -8,13 +8,12 @@ export function Recipes() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    // Here you would typically fetch recipes based on ingredients
-    // For now, we'll just simulate loading
+    // Simulate loading
     setTimeout(() => setLoading(false), 2000);
   };
 
   const handleUseRecipe = () => {
-    // Handle the "Use This Recipe" button click
+    // Handles the "Use This Recipe" button click
     console.log('Recipe used');
   };
 

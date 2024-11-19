@@ -8,17 +8,17 @@ export function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Here you would typically handle the login logic
+    // Login logic
     console.log('Login attempted with:', email, password);
-    // For now, let's just navigate to the recipes page
+    // For now, navigates to the recipes page
     navigate('/recipes');
   };
 
   const handleCreate = (e) => {
     e.preventDefault();
-    // Here you would typically handle the account creation logic
+    // Account creation logic
     console.log('Account creation attempted with:', email, password);
-    // For now, let's just log a message
+    // For now, just logs a message
     console.log('Account creation functionality not implemented yet');
   };
 
