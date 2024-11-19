@@ -4,7 +4,6 @@ import './about.css';
 export function About() {
   return (
     <main>
-      {/* <!-- <div id="picture" id="img" class="picture-box"><img width="800px" src="recipez.jpeg" alt="recipe" /></div> --> */}
       <div id="picture" class="picture-box"><img src="sourcefiles/recipez.jpeg" alt="recipe" /></div>
 
       <h1>About Reduce.Reuse.RECIPE</h1>
