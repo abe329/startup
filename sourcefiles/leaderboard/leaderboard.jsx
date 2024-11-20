@@ -1,55 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './leaderboard.css';
 
 export function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([
+  const leaderboardData = [
     { rank: 1, user: 'Ralph', points: 1200 },
     { rank: 2, user: 'CamdenThurman', points: 950 },
     { rank: 3, user: 'John', points: 640 },
-  ]);
+  ];
 
-  const [scoreUpdates, setScoreUpdates] = useState([
+  const scoreUpdates = [
     { timestamp: '10:15 AM', username: 'Ralph', points: 80, newScore: 1200 },
     { timestamp: '10:12 AM', username: 'CamdenThurman', points: 75, newScore: 950 },
     { timestamp: '10:08 AM', username: 'John', points: 60, newScore: 640 },
     { timestamp: '10:05 AM', username: 'CamdenThurman', points: 55, newScore: 875 },
     { timestamp: '10:01 AM', username: 'Ralph', points: 70, newScore: 1120 },
-  ]);
-
-  useEffect(() => {
-    // Simulating fetching leaderboard data from an API
-    const fetchLeaderboardData = async () => {
-      // Replace this with actual API call
-      const response = await new Promise(resolve => 
-        setTimeout(() => resolve(leaderboardData), 1000)
-      );
-      setLeaderboardData(response);
-    };
-
-    fetchLeaderboardData();
-  }, []);
-
-  useEffect(() => {
-    // Simulating WebSocket connection for live updates
-    const ws = {
-      onmessage: (event) => {
-        const newUpdate = {
-          timestamp: new Date().toLocaleTimeString(),
-          username: 'NewUser',
-          points: Math.floor(Math.random() * 100),
-          newScore: Math.floor(Math.random() * 1000)
-        };
-        setScoreUpdates(prevUpdates => [newUpdate, ...prevUpdates.slice(0, 4)]);
-      }
-    };
-
-    // Simulate receiving updates every 5 seconds
-    const interval = setInterval(() => {
-      ws.onmessage();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  ];
 
   return (
     <main className="leaderboard-container">
