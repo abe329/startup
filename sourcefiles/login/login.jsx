@@ -27,7 +27,7 @@ export function Login() {
       <h1 style={{ paddingBottom: '20px' }}>Welcome to the greatest decision of your life!</h1>
       <form onSubmit={handleLogin}>
         <div>
-          <span>@</span>
+          <span>💌</span>
           <input 
             type="text" 
             placeholder="your@email.com" 

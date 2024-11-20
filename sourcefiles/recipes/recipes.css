@@ -1,9 +1,13 @@
-#ingredientForm {
-    max-width: 500px;
+.ingredientForm {
+    max-width: 600px;
     margin: 30px auto;
 }
 
-#recipe-list {
+.ingredient-input {
+    width: 300px;
+  }
+
+.recipe-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

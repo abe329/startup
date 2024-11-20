@@ -8,6 +8,7 @@ export function Recipes() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log('Searching for recipes with:', ingredients);
     // Simulate loading
     setTimeout(() => setLoading(false), 2000);
   };
@@ -20,11 +21,11 @@ export function Recipes() {
   return (
     <main>
       <h1 className="text-center">Find Recipes</h1>
-      <form id="ingredientForm" onSubmit={handleSubmit}>
+      <form className="ingredientForm" onSubmit={handleSubmit}>
         <label htmlFor="ingredients">Enter your ingredients:</label>
         <input 
-          type="text" 
-          id="ingredients" 
+          type="text"
+          className="ingredient-input"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
           placeholder="e.g., tomato, cheese, bread" 
@@ -33,12 +34,12 @@ export function Recipes() {
         <button type="submit">Find Recipes</button>
       </form>
 
-      <div id="api-generated-recipes">
+      <div class="api-generated-recipes">
         <h2>Generated Recipes</h2>
         {loading ? (
           <div id="loading">Loading recipes...</div>
         ) : (
-          <div id="recipe-list">
+          <div className="recipe-list">
             <div className="recipe-placeholder">
               <h4>Recipe Title</h4>
               <p>Ingredients: Placeholder ingredients</p>
