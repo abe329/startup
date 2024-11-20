@@ -27,6 +27,7 @@ export default function App() {
         </header>
   
         <Routes>
+            <Route path='/' element={<Login />} />
             <Route path='/login' element={<Login />} exact />
             <Route path='/recipes' element={<Recipes />} />
             <Route path='/leaderboard' element={<Leaderboard />} />
