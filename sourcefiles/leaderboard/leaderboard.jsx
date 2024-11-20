@@ -21,7 +21,7 @@ export function Leaderboard() {
       <h1>Leaderboard</h1>
       <div className="content-wrapper">
         <div className="leaderboard-section">
-          <table id="leaderboardTable">
+          <table className="leaderboardTable">
             <thead>
               <tr>
                 <th>Rank</th>
@@ -42,9 +42,9 @@ export function Leaderboard() {
         </div>
         
         <div className="websocket-section">
-          <div id="websocket-updates">
+          <div className="websocket-updates">
             <h2>Live Score Updates</h2>
-            <ul id="score-feed">
+            <ul className="score-feed">
               {scoreUpdates.map((update, index) => (
                 <li key={index} className="score-update">
                   <span className="timestamp">{update.timestamp}</span>

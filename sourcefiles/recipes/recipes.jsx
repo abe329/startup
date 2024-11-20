@@ -34,10 +34,10 @@ export function Recipes() {
         <button type="submit">Find Recipes</button>
       </form>
 
-      <div class="api-generated-recipes">
+      <div className="api-generated-recipes">
         <h2>Generated Recipes</h2>
         {loading ? (
-          <div id="loading">Loading recipes...</div>
+          <div className="loading">Loading recipes...</div>
         ) : (
           <div className="recipe-list">
             <div className="recipe-placeholder">

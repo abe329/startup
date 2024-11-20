@@ -4,7 +4,11 @@ import './about.css';
 export function About() {
   return (
     <main>
-      <div id="picture" class="picture-box"><img src="sourcefiles/recipez.jpeg" alt="recipe" /></div>
+      <div class="picture">
+        <div class="picture-box">
+          <img src="sourcefiles/recipez.jpeg" alt="recipe" />
+        </div>
+      </div>
 
       <h1>About Reduce.Reuse.RECIPE</h1>
       <p>We all have leftover ingredients in our fridge that are doomed for disposal, despite our best intentions.
