@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './leaderboard.css';
 
 export function Leaderboard() {
-  const leaderboardData = [
+  const [leaderboardData, setLeaderboardData] = useState([
     { rank: 1, user: 'Ralph', points: 1200 },
     { rank: 2, user: 'CamdenThurman', points: 950 },
     { rank: 3, user: 'John', points: 640 },
-  ];
+  ]);
 
-  const scoreUpdates = [
-    { timestamp: '10:15 AM', username: 'Ralph', points: 80, newScore: 1200 },
-    { timestamp: '10:12 AM', username: 'CamdenThurman', points: 75, newScore: 950 },
-    { timestamp: '10:08 AM', username: 'John', points: 60, newScore: 640 },
-    { timestamp: '10:05 AM', username: 'CamdenThurman', points: 55, newScore: 875 },
-    { timestamp: '10:01 AM', username: 'Ralph', points: 70, newScore: 1120 },
-  ];
+  const [scoreUpdates, setScoreUpdates] = useState([]);
+
+  useEffect(() => {
+    // Simulating fetching leaderboard data from an API
+    const fetchLeaderboardData = async () => {
+      // Replace this with actual API call
+      const response = await new Promise(resolve => 
+        setTimeout(() => resolve(leaderboardData), 1000)
+      );
+      setLeaderboardData(response);
+    };
+
+    fetchLeaderboardData();
+
+  }, []);
+
+  const addUserToLeaderboard = (username, points) => {
+    setLeaderboardData(prevData => {
+      const existingUserIndex = prevData.findIndex(user => user.user === username);
+      
+      if (existingUserIndex > -1) {
+        // Update existing user's points
+        const updatedUser = {
+          ...prevData[existingUserIndex],
+          points: prevData[existingUserIndex].points + points,
+        };
+        
+        return prevData.map((user, index) => index === existingUserIndex ? updatedUser : user)
+                       .sort((a, b) => b.points - a.points); // Sort by points descending
+      } else {
+        // Add new user
+        const newUser = { rank: prevData.length + 1, user: username, points };
+        return [...prevData, newUser].sort((a, b) => b.points - a.points); // Sort by points descending
+      }
+    });
+  };
 
   return (
     <main className="leaderboard-container">
@@ -30,9 +59,9 @@ export function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {leaderboardData.map((entry) => (
-                <tr key={entry.rank}>
-                  <td>{entry.rank}.</td>
+              {leaderboardData.map((entry, index) => (
+                <tr key={entry.user}>
+                  <td>{index + 1}.</td>
                   <td>{entry.user}</td>
                   <td>{entry.points}</td>
                 </tr>
@@ -40,7 +69,7 @@ export function Leaderboard() {
             </tbody>
           </table>
         </div>
-        
+
         <div className="websocket-section">
           <div className="websocket-updates">
             <h2>Live Score Updates</h2>
