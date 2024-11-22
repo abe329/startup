@@ -64,7 +64,7 @@ For this deliverable I added third-party, backend, and frontend service endpoint
 
 - [x] **Node.js/Express HTTP service** - done!🤩
 - [x] **Static middleware for frontend** - done!🤩
-- [ ] **Calls to third party endpoints** - Retrieves recipe data from NinjaAPI's recipe API.
+- [x] **Calls to third party endpoints** - Retrieves recipe data from NinjaAPI's recipe API.
 - [x] **Backend service endpoints** - My backend endpoint (/api/recipes) retrieves and formats recipes responses.
 - [x] **Frontend calls service endpoints** - My React app component pulls the recipes from my backend using the fetch function. 
 
