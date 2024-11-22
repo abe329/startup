@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './recipes.css';
+import { useUserContext } from '../UserContext';
 
 export function Recipes() {
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [playerScore, setPlayerScore] = useState(0);
+  const { userScore, updateUserScore } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,16 +23,15 @@ export function Recipes() {
   };
 
   const handleUseRecipe = (recipeScore) => {
-    setPlayerScore(prevScore => prevScore + recipeScore);
-    console.log('Recipe used, new score:', playerScore + recipeScore);
+    updateUserScore(recipeScore);
+    console.log('Recipe used, new score:', userScore + recipeScore);
   };
 
   return (
     <main>
       <h1 className="text-center">Find Recipes</h1>
-      <h2 className="text-center">Total Score: {playerScore}</h2>
       <form className="ingredientForm" onSubmit={handleSubmit}>
-        <label htmlFor="ingredients">Enter your ingredients:</label>
+        <label htmlFor="ingredients">Enter your ingredient:</label>
         <input 
           type="text"
           className="ingredient-input"
