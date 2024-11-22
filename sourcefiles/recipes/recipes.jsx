@@ -5,6 +5,7 @@ export function Recipes() {
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [playerScore, setPlayerScore] = useState(0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,13 +21,15 @@ export function Recipes() {
     }
   };
 
-  const handleUseRecipe = () => {
-    console.log('Recipe used');
+  const handleUseRecipe = (recipeScore) => {
+    setPlayerScore(prevScore => prevScore + recipeScore);
+    console.log('Recipe used, new score:', playerScore + recipeScore);
   };
 
   return (
     <main>
       <h1 className="text-center">Find Recipes</h1>
+      <h2 className="text-center">Total Score: {playerScore}</h2>
       <form className="ingredientForm" onSubmit={handleSubmit}>
         <label htmlFor="ingredients">Enter your ingredients:</label>
         <input 
@@ -75,8 +78,8 @@ export function Recipes() {
                   ) : (
                     <p>No instructions available</p>
                   )}
-                <p className="recipe-score">Score: <span>100</span> points</p>
-                <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
+                <p className="recipe-score">Score: <span>{recipe.score || 100}</span> points</p>
+                <button className="use-recipe-btn" onClick={() => handleUseRecipe(recipe.score || 100)}>Use This Recipe</button>
               </div>
             ))}
           </div>
