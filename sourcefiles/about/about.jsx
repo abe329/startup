@@ -4,8 +4,8 @@ import './about.css';
 export function About() {
   return (
     <main>
-      <div class="picture">
-        <div class="picture-box">
+      <div className="picture">
+        <div className="picture-box">
           <img src="sourcefiles/recipez.jpeg" alt="recipe" />
         </div>
       </div>
