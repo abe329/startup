@@ -64,18 +64,14 @@ export function Recipes() {
                 </ul>
                 <h5>Instructions:</h5>
                   {Array.isArray(recipe.instructions) ? (
-                    <ol>
-                      {recipe.instructions.map((step, i) => (
-                        <li key={i}>{step}</li>
-                      ))}
-                    </ol>
+                    recipe.instructions.map((step, i) => (
+                      <p key={i}>{step}</p>
+                    ))
                   ) : typeof recipe.instructions === 'string' ? (
-                    <ol>
-                      {recipe.instructions.split('.').map((step, i) => {
-                        const trimmedStep = step.trim();
-                        return trimmedStep ? <li key={i}>{trimmedStep}</li> : null;
-                      })}
-                    </ol>
+                    recipe.instructions.split('.').map((step, i) => {
+                      const trimmedStep = step.trim();
+                      return trimmedStep ? <p key={i}>{trimmedStep}</p> : null;
+                    })
                   ) : (
                     <p>No instructions available</p>
                   )}

@@ -45,12 +45,14 @@
     margin-bottom: 10px;
   }
   
-  .recipe-placeholder ul, .recipe-placeholder ol {
-    padding-left: 20px;
+  .recipe-placeholder p, .recipe-placeholder li {
+    text-align: left;
+    line-height: 1.5;
   }
   
-  .recipe-placeholder li {
-    margin-bottom: 5px;
+  .recipe-placeholder ul, .recipe-placeholder ol {
+    padding-left: 20px;
+    text-align: left;
   }
   
   .use-recipe-btn {
