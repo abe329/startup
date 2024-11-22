@@ -3,18 +3,24 @@ import './recipes.css';
 
 export function Recipes() {
   const [ingredients, setIngredients] = useState('');
+  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log('Searching for recipes with:', ingredients);
-    // Simulate loading
-    setTimeout(() => setLoading(false), 2000);
+    try {
+      const response = await fetch(`http://localhost:3000/api/recipes?ingredients=${ingredients}`);
+      const data = await response.json();
+      setRecipes(data);
+    } catch (error) {
+      console.error('Error fetching recipes:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleUseRecipe = () => {
-    // Handles the "Use This Recipe" button click
     console.log('Recipe used');
   };
 
@@ -40,27 +46,15 @@ export function Recipes() {
           <div className="loading">Loading recipes...</div>
         ) : (
           <div className="recipe-list">
-            <div className="recipe-placeholder">
-              <h4>Recipe Title</h4>
-              <p>Ingredients: Placeholder ingredients</p>
-              <p>Instructions: Placeholder instructions</p>
-              <p className="recipe-score">Score: <span>100</span> points</p>
-              <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
-            </div>
-            <div className="recipe-placeholder">
-              <h4>Another Recipe</h4>
-              <p>Ingredients: More placeholder ingredients</p>
-              <p>Instructions: More placeholder instructions</p>
-              <p className="recipe-score">Score: <span>100</span> points</p>
-              <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
-            </div>
-            <div className="recipe-placeholder">
-              <h4>Yet Another Recipe</h4>
-              <p>Ingredients: Even more placeholder ingredients</p>
-              <p>Instructions: Even more placeholder instructions</p>
-              <p className="recipe-score">Score: <span>100</span> points</p>
-              <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
-            </div>
+            {recipes.map((recipe, index) => (
+              <div key={index} className="recipe-placeholder">
+                <h4>{recipe.title}</h4>
+                <p>Ingredients: {recipe.ingredients}</p>
+                <p>Instructions: {recipe.instructions}</p>
+                <p className="recipe-score">Score: <span>100</span> points</p>
+                <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
+              </div>
+            ))}
           </div>
         )}
       </div>
