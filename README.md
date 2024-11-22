@@ -44,3 +44,16 @@ For this deliverable I properly styled the application into its final appearance
 - [x] **Application elements** - Used really good contrast and whitespace (except for it's blue, not white).
 - [x] **Application text content** - Consistent fonts
 - [x] **Application images** - I changed the sizing of my image and centered it.
+
+
+## React deliverable
+
+For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology (Websockets, API, etc.).
+
+- [x] **Bundled and transpiled** - done!
+- [x] **Components** - Login, voting list, vote are all components with mocks for login, WebSocket.
+- [x] **login** - When you press the login button it takes you to the recipe page.
+- [x] **database** - Displayed the leaderboard data.
+- [x] **application logic** - The ingredients and recipes used numbers change in the console log based up the user's selections.
+- [x] **Router** - Routing between login and recipe components.
+- [x] **Hooks** - Uses 'UseState' and 'UseNavigation' frequently for page functionality.
