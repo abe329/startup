@@ -49,8 +49,36 @@ export function Recipes() {
             {recipes.map((recipe, index) => (
               <div key={index} className="recipe-placeholder">
                 <h4>{recipe.title}</h4>
-                <p>Ingredients: {recipe.ingredients}</p>
-                <p>Instructions: {recipe.instructions}</p>
+                <h5>Ingredients:</h5>
+                <ul>
+                  {Array.isArray(recipe.ingredients)
+                    ? recipe.ingredients.map((ingredient, i) => (
+                        <li key={i}>{ingredient}</li>
+                      ))
+                    : typeof recipe.ingredients === 'string'
+                    ? recipe.ingredients.split('|').map((ingredient, i) => (
+                        <li key={i}>{ingredient.trim()}</li>
+                      ))
+                    : <li>No ingredients available</li>
+                  }
+                </ul>
+                <h5>Instructions:</h5>
+                  {Array.isArray(recipe.instructions) ? (
+                    <ol>
+                      {recipe.instructions.map((step, i) => (
+                        <li key={i}>{step}</li>
+                      ))}
+                    </ol>
+                  ) : typeof recipe.instructions === 'string' ? (
+                    <ol>
+                      {recipe.instructions.split('.').map((step, i) => {
+                        const trimmedStep = step.trim();
+                        return trimmedStep ? <li key={i}>{trimmedStep}</li> : null;
+                      })}
+                    </ol>
+                  ) : (
+                    <p>No instructions available</p>
+                  )}
                 <p className="recipe-score">Score: <span>100</span> points</p>
                 <button className="use-recipe-btn" onClick={handleUseRecipe}>Use This Recipe</button>
               </div>

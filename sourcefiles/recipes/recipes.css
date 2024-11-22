@@ -25,3 +25,44 @@
     width: 100%;
     margin-top: 10px;
 }
+
+.recipe-placeholder {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .recipe-placeholder h4 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .recipe-placeholder h5 {
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-placeholder ul, .recipe-placeholder ol {
+    padding-left: 20px;
+  }
+  
+  .recipe-placeholder li {
+    margin-bottom: 5px;
+  }
+  
+  .use-recipe-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .use-recipe-btn:hover {
+    background-color: #45a049;
+  }
