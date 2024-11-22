@@ -57,3 +57,14 @@ For this deliverable I used JavaScript and React so that the application complet
 - [x] **application logic** - The ingredients and recipes used numbers change in the console log based up the user's selections.
 - [x] **Router** - Routing between login and recipe components.
 - [x] **Hooks** - Uses 'UseState' and 'UseNavigation' frequently for page functionality.
+
+## Service deliverable
+
+For this deliverable I added third-party, backend, and frontend service endpoints that generate recipes based on the user's search.
+
+- [x] **Node.js/Express HTTP service** - done!🤩
+- [x] **Static middleware for frontend** - done!🤩
+- [ ] **Calls to third party endpoints** - Retrieves recipe data from NinjaAPI's recipe API.
+- [x] **Backend service endpoints** - My backend endpoint (/api/recipes) retrieves and formats recipes responses.
+- [x] **Frontend calls service endpoints** - My React app component pulls the recipes from my backend using the fetch function. 
+
