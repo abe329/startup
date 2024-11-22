@@ -21,6 +21,12 @@
     border-radius: 5px;
 }
 
+.recipe-score {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .use-recipe-btn {
     width: 100%;
     margin-top: 10px;
@@ -56,7 +62,7 @@
   }
   
   .use-recipe-btn {
-    background-color: #4CAF50;
+    background-color: #82c8d4;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -66,5 +72,5 @@
   }
   
   .use-recipe-btn:hover {
-    background-color: #45a049;
+    background-color: #0fa4af;
   }
