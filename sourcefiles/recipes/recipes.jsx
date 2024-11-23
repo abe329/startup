@@ -12,7 +12,7 @@ export function Recipes() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/recipes?ingredients=${ingredients}`);
+      const response = await fetch(`/api/recipes?ingredients=${ingredients}`);
       const data = await response.json();
       setRecipes(data);
     } catch (error) {

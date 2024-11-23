@@ -6,20 +6,44 @@ export function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Login logic
-    console.log('Login attempted with:', email, password);
-    // For now, navigates to the recipes page
-    navigate('/recipes');
+    try {
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const { token } = await response.json();
+        localStorage.setItem('token', token);
+        navigate('/recipes');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
   };
 
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
-    // Account creation logic
-    console.log('Account creation attempted with:', email, password);
-    // For now, just logs a message
-    console.log('Account creation functionality not implemented yet');
+    try {
+      const response = await fetch('/auth/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const { token } = await response.json();
+        localStorage.setItem('token', token);
+        navigate('/recipes');
+      } else {
+        console.error('Account creation failed');
+      }
+    } catch (error) {
+      console.error('Error during account creation:', error);
+    }
   };
 
   return (
