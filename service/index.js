@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const uuid = require('uuid');
-require('dotenv').config({ path: '/Users/abehull/Desktop/cs260/startup/service/.env' });
-console.log('API Key:', process.env.API_NINJAS_KEY);
+// require('dotenv').config({ path: '/env.json' });
+const config = require('./env.json');
+console.log('API Key:', config.API_NINJAS_KEY);
 
 const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -28,13 +29,13 @@ app.get('/api/recipes', async (req, res) => {
     const limit = req.query.limit || 10; // Limit to 10
     console.log('Ingredients:', ingredients);
     
-    if (!process.env.API_NINJAS_KEY) {
+    if (!config.API_NINJAS_KEY) {
       throw new Error('API key is not set');
     }
     
     const response = await axios.get('https://api.api-ninjas.com/v1/recipe', {
       params: { query: ingredients },
-      headers: { 'X-Api-Key': process.env.API_NINJAS_KEY }
+      headers: { 'X-Api-Key': config.API_NINJAS_KEY }
     });
     
     console.log('API Response:', response.data);
