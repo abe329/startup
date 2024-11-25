@@ -58,6 +58,7 @@ For this deliverable I used JavaScript and React so that the application complet
 - [x] **Router** - Routing between login and recipe components.
 - [x] **Hooks** - Uses 'UseState' and 'UseNavigation' frequently for page functionality.
 
+
 ## Service deliverable
 
 For this deliverable I added third-party, backend, and frontend service endpoints that generate recipes based on the user's search.
@@ -67,4 +68,15 @@ For this deliverable I added third-party, backend, and frontend service endpoint
 - [x] **Calls to third party endpoints** - Retrieves recipe data from NinjaAPI's recipe API.
 - [x] **Backend service endpoints** - My backend endpoint (/api/recipes) retrieves and formats recipes responses.
 - [x] **Frontend calls service endpoints** - My React app component pulls the recipes from my backend using the fetch function. 
+
+## DB/Login deliverable
+
+For this deliverable I store the username password of a logged in user in the database.
+
+- [x] **MongoDB Atlas database created** - done!
+- [x] **Stores data in MongoDB** - done!
+- [x] **User registration** - Creates a new account in the database.
+- [x] **existing user** - Stores the user's data even if the user already exists.
+- [x] **Use MongoDB to store credentials** - Stores the user.
+- [ ] **Restricts functionality** - You cannot use the recipe generator unless you have logged in successfully.
 
