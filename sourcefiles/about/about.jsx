@@ -2,11 +2,17 @@ import React from 'react';
 import './about.css';
 
 export function About() {
+  const [imageUrl, setImageUrl] = React.useState('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=');
+
+  React.useEffect(() => {
+    setImageUrl(`recipez.jpeg`);
+  }, []);
+
   return (
     <main>
       <div className="picture">
         <div className="picture-box">
-          <img src="sourcefiles/recipez.jpeg" alt="recipe" />
+          <img src={imageUrl} alt="recipe" />
         </div>
       </div>
 

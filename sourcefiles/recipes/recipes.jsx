@@ -37,7 +37,7 @@ export function Recipes() {
           className="ingredient-input"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
-          placeholder="e.g., tomato, cheese, bread" 
+          placeholder="cheese" 
           required 
         />
         <button type="submit">Find Recipes</button>

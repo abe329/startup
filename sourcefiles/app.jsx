@@ -13,12 +13,11 @@ import { UserProvider, useUserContext } from './UserContext';
 function Footer() {
   const { userScore } = useUserContext();
   return (
-    <footer>
-      <hr />
-      <span className="text-reset">@Abe Hull</span>
-      <br />
-      <a className="Github" href="https://github.com/abe329">GitHub</a>
-      <br />
+    <footer style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 20px'}}>
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <span className="text-reset">@Abe Hull</span>
+        <a className="Github" href="https://github.com/abe329" style={{marginLeft: '20px'}}>GitHub</a>
+      </div>
       <div className="footer-score">
         <span>Your Score: {userScore}</span>
       </div>

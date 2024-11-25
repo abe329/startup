@@ -92,7 +92,10 @@ footer {
   margin-top: auto;
   text-align: center;
   background-color: #0fa4af;
-  padding: 20px 50px;
+  padding: 10px 20px; /* Reduced padding */
+}
+.footer-score {
+  text-align: right; /* Align score text to the right */
 }
 
 /* Button styles */

@@ -38,7 +38,7 @@ export function Unauthenticated(props) {
       <div className='d-flex flex-column align-items-center'>
         <div className='input-group mb-3 w-50'>
           <span className='input-group-text'>👤</span>
-          <input className='form-control' type='text' value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='your@email.com' />
+          <input className='form-control' type='text' value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='username' />
         </div>
         <div className='input-group mb-3 w-50'>
           <span className='input-group-text'>🔒</span>
