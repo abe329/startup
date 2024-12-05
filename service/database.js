@@ -7,9 +7,9 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false, });
 const db = client.db('simon');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+// const scoreCollection = db.collection('score');
 
-// This will asynchronously test the connection and exit the process if it fails
+// This will test the connection and exit the process if it fails
 (async function testConnection() {
   await client.connect();
   await db.command({ ping: 1 });
@@ -34,14 +34,26 @@ async function createUser(email, password) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
+    score: 0 // NEW
   };
   await userCollection.insertOne(user);
-
   return user;
 }
 
-async function addScore(score) {
-  return scoreCollection.insertOne(score);
+// async function addScore(score) {
+//   return scoreCollection.insertOne(score);
+// }
+
+async function updateUserScore(email, score) {
+  return userCollection.updateOne(
+    { email: email },
+    { $set: { score: score } }
+  );
+}
+
+async function getUserScore(email) {
+  const user = await userCollection.findOne({ email: email });
+  return user ? user.score || 0 : 0;
 }
 
 function getHighScores() {
@@ -58,6 +70,8 @@ module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  addScore,
+  // addScore,  // removed function
   getHighScores,
+  updateUserScore,
+  getUserScore,
 };

@@ -116,6 +116,31 @@ secureApiRouter.post('/score', async (req, res) => {
   res.send(scores);
 });
 
+//UpdateScore
+secureApiRouter.post('/updateScore', async (req, res) => {
+  const authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    // const newScore = req.body.score; //NEW
+    await DB.updateUserScore(user.email, req.body.score); //update new score
+    res.status(200).send({ msg: 'Score updated successfully' });
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+});
+
+//GetScore
+secureApiRouter.get('/userScore', async (req, res) => {
+  const authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    const score = await DB.getUserScore(user.email);
+    res.status(200).send({ score: score });
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+});
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });

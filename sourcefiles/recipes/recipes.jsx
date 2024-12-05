@@ -6,7 +6,7 @@ export function Recipes() {
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { userScore, updateUserScore } = useUserContext();
+  const { updateUserScore } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +22,9 @@ export function Recipes() {
     }
   };
 
-  const handleUseRecipe = (recipeScore) => {
-    updateUserScore(recipeScore);
-    console.log('Recipe used, new score:', userScore + recipeScore);
+  const handleUseRecipe = async (recipeScore) => {
+    await updateUserScore(recipeScore);
+    console.log('Recipe used, score updated on server');
   };
 
   return (

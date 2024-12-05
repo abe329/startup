@@ -1,8 +1,10 @@
-import React from 'react';
+// import React, { useEffect } from 'react';
+import React from 'react'; // Took out useEffect
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+// import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'; // Took out useNavigate
 import { Login } from './login/login';
 import { Recipes } from './recipes/recipes';
 import { Leaderboard } from './leaderboard/leaderboard';
@@ -10,8 +12,10 @@ import { About } from './about/about';
 import { AuthState } from './login/authState';
 import { UserProvider, useUserContext } from './UserContext';
 
+
 function Footer() {
   const { userScore } = useUserContext();
+
   return (
     <footer style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 20px'}}>
       <div style={{display: 'flex', alignItems: 'center'}}>
