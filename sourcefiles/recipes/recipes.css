@@ -4,7 +4,8 @@
 }
 
 .ingredient-input {
-    width: 300px;
+    width: 250px;
+    margin: 5px;
   }
 
 .recipe-list {

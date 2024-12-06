@@ -40,7 +40,7 @@ export default function App() {
       <BrowserRouter>
         <div className="page-container">
           <header>
-            <h1>Reduce.Reuse.RECIPE</h1>
+            <h1 className="title">Reduce.Reuse.RECIPE</h1>
             <menu className='navbar-nav'>
               <nav>
                 <ul className="nav-menu">
@@ -71,7 +71,7 @@ export default function App() {
                 </ul>
               </nav>
             </menu>
-            <hr />
+            {/* <hr /> */}
           </header>
     
           <Routes>
