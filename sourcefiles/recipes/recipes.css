@@ -10,17 +10,39 @@
   }
 
 .recipe-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
-.recipe-placeholder {
-    width: 300px;
-    margin: 15px;
-    padding: 15px;
+.recipe-box {
+    display: flex;
+    flex-direction: column;
     border: 3px solid #5b5b5b;
     border-radius: 5px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* NEW STYLES */
+    height: 500px; /* Set a fixed initial height */
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+.recipe-box h4 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recipe-box h5 {
+  color: #666;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.recipe-box p, .recipe-box li {
+  text-align: left;
+  line-height: 1.5;
 }
 
 .recipe-score {
@@ -28,51 +50,50 @@
     font-weight: bold;
     margin-top: 10px;
 }
+  
+
 
 .use-recipe-btn {
-    width: 100%;
-    margin-top: 10px;
+  width: 100%; /*New*/
+  margin-top: 10px; /*New*/
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.recipe-placeholder {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .recipe-placeholder h4 {
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .recipe-placeholder h5 {
-    color: #666;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-placeholder p, .recipe-placeholder li {
-    text-align: left;
-    line-height: 1.5;
-  }
-  
-  .recipe-placeholder ul, .recipe-placeholder ol {
-    padding-left: 20px;
-    text-align: left;
-  }
-  
-  .use-recipe-btn {
-    background-color: #82c8d4;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .use-recipe-btn:hover {
-    background-color: #0fa4af;
-  }
+.use-recipe-btn:hover {
+  background-color: #0b5ed7;
+}
+
+/* NEW STYLES */
+.recipe-box.expanded {
+  height: auto;
+}
+
+.recipe-content {
+  max-height: 400px; /* Adjust based on your needs */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.recipe-content.expanded {
+  max-height: none;
+}
+
+.expand-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #a4b1bc;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.expand-btn:hover {
+  background-color: #848f98;
+}

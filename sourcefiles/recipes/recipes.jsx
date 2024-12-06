@@ -7,6 +7,7 @@ export function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const { updateUserScore } = useUserContext();
+  const [expandedRecipes, setExpandedRecipes] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,13 @@ export function Recipes() {
     console.log('Recipe used, score updated on server');
   };
 
+  const toggleRecipeExpansion = (index) => {
+    setExpandedRecipes(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   return (
     <main>
       <h1 className="text-center">Find Recipes</h1>
@@ -44,28 +52,29 @@ export function Recipes() {
       </form>
 
       <div className="api-generated-recipes">
-        <h2>Generated Recipes</h2>
+        {recipes.length > 0 && <h2>Generated Recipes</h2>}
         {loading ? (
           <div className="loading">Loading recipes...</div>
         ) : (
           <div className="recipe-list">
             {recipes.map((recipe, index) => (
-              <div key={index} className="recipe-placeholder">
+              <div key={index} className={`recipe-box ${expandedRecipes[index] ? 'expanded' : ''}`}>
                 <h4>{recipe.title}</h4>
-                <h5>Ingredients:</h5>
-                <ul>
-                  {Array.isArray(recipe.ingredients)
-                    ? recipe.ingredients.map((ingredient, i) => (
-                        <li key={i}>{ingredient}</li>
-                      ))
-                    : typeof recipe.ingredients === 'string'
-                    ? recipe.ingredients.split('|').map((ingredient, i) => (
-                        <li key={i}>{ingredient.trim()}</li>
-                      ))
-                    : <li>No ingredients available</li>
-                  }
-                </ul>
-                <h5>Instructions:</h5>
+                <div className={`recipe-content ${expandedRecipes[index] ? 'expanded' : ''}`}>
+                  <h5>Ingredients:</h5>
+                  <ul>
+                    {Array.isArray(recipe.ingredients)
+                      ? recipe.ingredients.map((ingredient, i) => (
+                          <li key={i}>{ingredient}</li>
+                        ))
+                      : typeof recipe.ingredients === 'string'
+                      ? recipe.ingredients.split('|').map((ingredient, i) => (
+                          <li key={i}>{ingredient.trim()}</li>
+                        ))
+                      : <li>No ingredients available</li>
+                    }
+                  </ul>
+                  <h5>Instructions:</h5>
                   {Array.isArray(recipe.instructions) ? (
                     recipe.instructions.map((step, i) => (
                       <p key={i}>{step}</p>
@@ -78,8 +87,21 @@ export function Recipes() {
                   ) : (
                     <p>No instructions available</p>
                   )}
+                </div>
+                {!expandedRecipes[index] && (
+                  <button className="expand-btn" onClick={() => toggleRecipeExpansion(index)}>
+                    Show More
+                  </button>
+                )}
+                {expandedRecipes[index] && (
+                  <button className="expand-btn" onClick={() => toggleRecipeExpansion(index)}>
+                    Show Less
+                  </button>
+                )}
+                <button className="use-recipe-btn" onClick={() => handleUseRecipe(recipe.score || 100)}>
+                  Use This Recipe
+                </button>
                 <p className="recipe-score">Score: <span>{recipe.score || 100}</span> points</p>
-                <button className="use-recipe-btn" onClick={() => handleUseRecipe(recipe.score || 100)}>Use This Recipe</button>
               </div>
             ))}
           </div>
