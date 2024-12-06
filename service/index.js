@@ -25,6 +25,7 @@ const formatRecipe = (recipe) => {
   };
 };
 
+// Endpoint to fetch recipes
 app.get('/api/recipes', async (req, res) => {
   try {
     const ingredients = req.query.ingredients;
@@ -46,6 +47,17 @@ app.get('/api/recipes', async (req, res) => {
   } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'An error occurred while fetching recipes' });
+  }
+});
+
+// Endpoint to fetch high scores from database
+app.get('/api/highScores', async (req, res) => {
+  try {
+    const highScores = await DB.getHighScores();
+    res.json(highScores);
+  } catch (error) {
+    console.error('Error fetching high scores:', error);
+    res.status(500).json({ error: 'An error occurred while fetching high scores' });
   }
 });
 

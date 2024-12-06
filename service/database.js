@@ -40,10 +40,6 @@ async function createUser(email, password) {
   return user;
 }
 
-// async function addScore(score) {
-//   return scoreCollection.insertOne(score);
-// }
-
 async function updateUserScore(email, score) {
   return userCollection.updateOne(
     { email: email },
@@ -56,21 +52,21 @@ async function getUserScore(email) {
   return user ? user.score || 0 : 0;
 }
 
-function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
-  return cursor.toArray();
+async function getHighScores() {
+  // const query = { score: { $gt: 0, $lt: 900 } };
+  // const options = {
+    return userCollection.find({})
+    .sort({ score: -1 })
+    .limit(10)
+    .toArray();
+  // const cursor = scoreCollection.find(query, options);
+  // return cursor.toArray();
 }
 
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  // addScore,  // removed function
   getHighScores,
   updateUserScore,
   getUserScore,

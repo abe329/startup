@@ -2,27 +2,35 @@ import React, { useState, useEffect } from 'react';
 import './leaderboard.css';
 
 export function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([
-    { rank: 1, user: 'Ralph', points: 1200 },
-    { rank: 2, user: 'CamdenThurman', points: 950 },
-    { rank: 3, user: 'John', points: 640 },
-  ]);
-
+  // const [leaderboardData, setLeaderboardData] = useState([
+  //   { rank: 1, user: 'Ralph', points: 1200 },
+  //   { rank: 2, user: 'CamdenThurman', points: 950 },
+  //   { rank: 3, user: 'John', points: 640 },
+  // ]);
+  const [leaderboardData, setLeaderboardData] = useState([]);
   const [scoreUpdates, setScoreUpdates] = useState([]);
 
   useEffect(() => {
-    // Simulating fetching leaderboard data from an API
-    const fetchLeaderboardData = async () => {
-      // Replace this with actual API call
-      const response = await new Promise(resolve => 
-        setTimeout(() => resolve(leaderboardData), 1000)
-      );
-      setLeaderboardData(response);
-    };
-
     fetchLeaderboardData();
-
   }, []);
+
+  const fetchLeaderboardData = async () => {
+    try {
+      const response = await fetch('/api/highScores');
+      if (response.ok) {
+        const data = await response.json();
+        setLeaderboardData(data.map((entry, index) => ({
+          rank: index + 1,
+          user: entry.email, // Assuming the user's email is used as the username
+          points: entry.score
+        })));
+      } else {
+        console.error('Failed to fetch leaderboard data');
+      }
+    } catch (error) {
+      console.error('Error fetching leaderboard data:', error);
+    }
+  };
 
   const addUserToLeaderboard = (username, points) => {
     setLeaderboardData(prevData => {
@@ -59,30 +67,15 @@ export function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {leaderboardData.map((entry, index) => (
+              {leaderboardData.map((entry) => (
                 <tr key={entry.user}>
-                  <td>{index + 1}.</td>
+                  <td>{entry.rank}.</td>
                   <td>{entry.user}</td>
                   <td>{entry.points}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div className="websocket-section">
-          <div className="websocket-updates">
-            <h2>Live Score Updates</h2>
-            <ul className="score-feed">
-              {scoreUpdates.map((update, index) => (
-                <li key={index} className="score-update">
-                  <span className="timestamp">{update.timestamp}</span>
-                  <span className="username">{update.username}</span> used a recipe and gained {update.points} points. 
-                  New score: <span className="score">{update.newScore}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </main>
