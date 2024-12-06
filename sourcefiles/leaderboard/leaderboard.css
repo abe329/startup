@@ -9,6 +9,14 @@
   margin: 0 auto;
 }
 
+.leaderboardTable tbody tr:nth-child(even) {
+  background-color: #afdde5;
+}
+
+.leaderboardTable tbody tr:nth-child(odd) {
+  background-color: #6fc1d0; /* White background for odd rows */
+}
+
 .websocket-section {
   margin-top: 30px;
 }

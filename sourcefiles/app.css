@@ -88,6 +88,10 @@ main {
   justify-content: center;
 }
 
+.welcome-sign {
+  margin-bottom: 0;
+}
+
 /* Footer styles */
 footer {
   flex-shrink: 0;

@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './leaderboard.css';
 
 export function Leaderboard() {
-  // const [leaderboardData, setLeaderboardData] = useState([
-  //   { rank: 1, user: 'Ralph', points: 1200 },
-  //   { rank: 2, user: 'CamdenThurman', points: 950 },
-  //   { rank: 3, user: 'John', points: 640 },
-  // ]);
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [scoreUpdates, setScoreUpdates] = useState([]);
 
   useEffect(() => {
     fetchLeaderboardData();
@@ -30,27 +24,6 @@ export function Leaderboard() {
     } catch (error) {
       console.error('Error fetching leaderboard data:', error);
     }
-  };
-
-  const addUserToLeaderboard = (username, points) => {
-    setLeaderboardData(prevData => {
-      const existingUserIndex = prevData.findIndex(user => user.user === username);
-      
-      if (existingUserIndex > -1) {
-        // Update existing user's points
-        const updatedUser = {
-          ...prevData[existingUserIndex],
-          points: prevData[existingUserIndex].points + points,
-        };
-        
-        return prevData.map((user, index) => index === existingUserIndex ? updatedUser : user)
-                       .sort((a, b) => b.points - a.points); // Sort by points descending
-      } else {
-        // Add new user
-        const newUser = { rank: prevData.length + 1, user: username, points };
-        return [...prevData, newUser].sort((a, b) => b.points - a.points); // Sort by points descending
-      }
-    });
   };
 
   return (
