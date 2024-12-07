@@ -8,6 +8,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'; // Too
 import { Login } from './login/login';
 import { Recipes } from './recipes/recipes';
 import { Leaderboard } from './leaderboard/leaderboard';
+import { Chat } from './chat/chat';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 import { UserProvider, useUserContext } from './UserContext';
@@ -63,6 +64,13 @@ export default function App() {
                       </NavLink>
                     </li>
                   )}
+                  {authState === AuthState.Authenticated && (
+                    <li>
+                      <NavLink className='nav-link' to='chat'>
+                        Chat
+                      </NavLink>
+                    </li>
+                  )}
                   <li>
                     <NavLink className='nav-link' to='about'>
                       About
@@ -93,6 +101,7 @@ export default function App() {
               />} exact />
             <Route path='/recipes' element={<Recipes userName={userName} />} />
             <Route path='/leaderboard' element={<Leaderboard />} />
+            <Route path='/chat' element={<Chat />} />
             <Route path='/about' element={<About />} />
             <Route path='*' element={<NotFound />} />
           </Routes>

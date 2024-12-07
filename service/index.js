@@ -8,6 +8,7 @@ const axios = require('axios');
 const config = require('./env.json');
 console.log('API Key:', config.API_NINJAS_KEY);
 const authCookieName = 'token';
+const { peerProxy } = require('./peerProxy.js'); //pull in websocket code
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -172,6 +173,8 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+const httpService = app.listen(port, () => { //New for websocket
+  console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
