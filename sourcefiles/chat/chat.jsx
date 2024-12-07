@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './chat.css';
 
 export function Chat() {
     const [myName, setMyName] = useState('');
@@ -16,7 +17,7 @@ export function Chat() {
 
         socketRef.current.onopen = () => {
             setIsConnected(true);
-            appendMsg('system', 'websocket', 'connected');
+            // appendMsg('system', 'websocket', 'connected');
         };
 
         socketRef.current.onmessage = async (event) => {
@@ -27,7 +28,7 @@ export function Chat() {
 
         socketRef.current.onclose = () => {
             setIsConnected(false);
-            appendMsg('system', 'websocket', 'disconnected');
+            // appendMsg('system', 'websocket', 'disconnected');
         };
 
         return () => {
@@ -63,12 +64,12 @@ export function Chat() {
 
     return (
         <main>    
-            <h1>Chat</h1>
+            <h1><b>Chat</b></h1>
             <fieldset id="chat-controls" disabled={!isConnected}>
-                <legend>Chat</legend>
                 <input 
                     id="new-msg" 
                     type="text"
+                    className="text-input"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && sendMessage()}

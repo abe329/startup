@@ -1,0 +1,14 @@
+.text-input {
+    width: 250px;
+    margin: 5px;
+    padding: 0 2px 0;
+  }
+
+  div .friend {
+    color: #19a33c;
+    font-weight: bold;
+  }
+  div .me {
+    color: #333333;
+    font-weight: bold;
+  }
