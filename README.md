@@ -42,7 +42,7 @@ For this deliverable I properly styled the application into its final appearance
 - [x] **Navigation elements** - I used display flex and put the nav in a row in the center.
 - [x] **Responsive to window resizing** - My app looks PHENOMENAL on devices of all sizes.
 - [x] **Application elements** - Used really good contrast and whitespace (except for it's blue, not white).
-- [x] **Application text content** - Consistent fonts
+- [x] **Application text content** - Consistent fonts. I even uploaded a custom font using @font-face!
 - [x] **Application images** - I changed the sizing of my image and centered it.
 
 
@@ -51,7 +51,7 @@ For this deliverable I properly styled the application into its final appearance
 For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology (Websockets, API, etc.).
 
 - [x] **Bundled and transpiled** - done!
-- [x] **Components** - Login, voting list, vote are all components with mocks for login, WebSocket.
+- [x] **Components** - Login, find recipes are all components with mocks for login, WebSocket.
 - [x] **login** - When you press the login button it takes you to the recipe page.
 - [x] **database** - Displayed the leaderboard data.
 - [x] **application logic** - The ingredients and recipes used numbers change in the console log based up the user's selections.
@@ -76,7 +76,7 @@ For this deliverable I store the username password of a logged in user in the da
 - [x] **MongoDB Atlas database created** - done!
 - [x] **Stores data in MongoDB** - done!
 - [x] **User registration** - Creates a new account in the database.
-- [x] **existing user** - Stores the user's data even if the user already exists.
-- [x] **Use MongoDB to store credentials** - Stores the user.
+- [x] **existing user** - Stores the user's data, even if the user already exists. The leaderboard displays high scores
+- [x] **Use MongoDB to store credentials** - Stores the user's email, password, and score!
 - [ ] **Restricts functionality** - You cannot use the recipe generator unless you have logged in successfully.
 
