@@ -8,6 +8,7 @@ export function Chat() {
     const socketRef = useRef(null);
 
     useEffect(() => {
+        fetchUserName();
         // Establish WebSocket connection
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         // socketRef.current = new WebSocket(`${protocol}://${window.location.host}/ws`);
@@ -33,6 +34,20 @@ export function Chat() {
             socketRef.current.close();
         };
     }, []);
+    
+    const fetchUserName = async () => {
+        try {
+            const response = await fetch('/api/userName');
+            if (response.ok) {
+                const data = await response.json();
+                setMyName(data.name);
+            } else {
+                console.error('Failed to fetch user name');
+            }
+        } catch (error) {
+            console.error('Error fetching user name:', error);
+        }
+    };
 
     const appendMsg = (cls, from, msg) => {
         setChatMessages(prevMessages => [{cls, from, msg}, ...prevMessages]);
@@ -49,19 +64,7 @@ export function Chat() {
     return (
         <main>    
             <h1>Chat</h1>
-            <div className="name">
-                <fieldset id="name-controls">
-                    <legend>My Name</legend>
-                    <input 
-                        id="my-name" 
-                        type="text" 
-                        value={myName}
-                        onChange={(e) => setMyName(e.target.value)}
-                    />
-                </fieldset>
-            </div>
-
-            <fieldset id="chat-controls" disabled={!myName || !isConnected}>
+            <fieldset id="chat-controls" disabled={!isConnected}>
                 <legend>Chat</legend>
                 <input 
                     id="new-msg" 

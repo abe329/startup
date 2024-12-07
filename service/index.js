@@ -154,6 +154,16 @@ secureApiRouter.get('/userScore', async (req, res) => {
   }
 });
 
+secureApiRouter.get('/userName', async (req, res) => {
+  const authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    res.status(200).send({ name: user.email });
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+})
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
