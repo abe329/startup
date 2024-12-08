@@ -6,7 +6,7 @@ const DB = require('./database.js');
 const cors = require('cors');
 const axios = require('axios');
 const config = require('./env.json');
-console.log('API Key:', config.API_NINJAS_KEY);
+// console.log('API Key:', config.API_NINJAS_KEY);
 const authCookieName = 'token';
 const { peerProxy } = require('./peerProxy.js'); //pull in websocket code
 

@@ -37,7 +37,7 @@ export function Recipes() {
 
   return (
     <main>
-      <h1 className="text-center">Find Recipes</h1>
+      <h1 className="text-center"><b>Find Recipes</b></h1>
       <form className="ingredientForm" onSubmit={handleSubmit}>
         <label htmlFor="ingredients">Enter your ingredient:</label>
         <input 

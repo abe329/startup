@@ -11,9 +11,10 @@ export function Chat() {
     useEffect(() => {
         fetchUserName();
         // Establish WebSocket connection
+        let port = window.location.port;
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         // socketRef.current = new WebSocket(`${protocol}://${window.location.host}/ws`);
-        socketRef.current = new WebSocket(`${protocol}://${window.location.hostname}:4000/ws`);
+        socketRef.current = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
 
         socketRef.current.onopen = () => {
             setIsConnected(true);

@@ -28,7 +28,7 @@ export function Leaderboard() {
 
   return (
     <main className="leaderboard-container">
-      <h1>Leaderboard</h1>
+      <h1><b>Leaderboard</b></h1>
       <div className="content-wrapper">
         <div className="leaderboard-section">
           <table className="leaderboardTable">
