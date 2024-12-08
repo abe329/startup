@@ -78,5 +78,13 @@ For this deliverable I store the username password of a logged in user in the da
 - [x] **User registration** - Creates a new account in the database.
 - [x] **existing user** - Stores the user's data, even if the user already exists. The leaderboard displays high scores
 - [x] **Use MongoDB to store credentials** - Stores the user's email, password, and score!
-- [ ] **Restricts functionality** - You cannot use the recipe generator unless you have logged in successfully.
+- [x] **Restricts functionality** - You cannot use the recipe generator unless you have logged in successfully😉
 
+## WebSocket deliverable
+
+For this deliverable I used webSocket to update the votes on the frontend in realtime.
+
+- [x] **Backend listens for WebSocket connection** - done!
+- [x] **Frontend makes WebSocket connection** - done!
+- [x] **Data sent over WebSocket connection** - done!
+- [x] **WebSocket data displayed** - Chat messages display in realtime! I'm really proud that this is working.
