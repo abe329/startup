@@ -82,7 +82,7 @@ For this deliverable I store the username password of a logged in user in the da
 
 ## WebSocket deliverable
 
-For this deliverable I used webSocket to update the votes on the frontend in realtime.
+For this deliverable I used webSocket to update the chat on the frontend in realtime.
 
 - [x] **Backend listens for WebSocket connection** - done!
 - [x] **Frontend makes WebSocket connection** - done!
