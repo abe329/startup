@@ -207,23 +207,23 @@ It would output based on the Promise resolution order and any chaining.
     - NPM: Node Package Manager
     - NVM: Node Version Manager
 
-15. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
+13. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
 
-16. React Hooks are used to add state and other React features to functional components without writing a class.
+14. React Hooks are used to add state and other React features to functional components without writing a class.
 
-17. React Hooks serve the following purposes:
+15. React Hooks serve the following purposes:
     - State Hook: Adds state to functional components
     - Context Hook: Subscribes to React context
     - Ref Hook: Creates a mutable reference
     - Effect Hook: Performs side effects in functional components
     - Performance Hook: Optimizes component rendering
 
-19. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
+16. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
 
-20. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
+17. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
 
-21. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
+18. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
 
-22. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
+19. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
 
-23. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
+20. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
