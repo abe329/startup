@@ -98,8 +98,19 @@ It would output based on the Promise resolution order and any chaining.
      .catch(error => console.error('Error:', error));
    ```
    This would return a Promise that resolves with the response data.
+   ```javascript
+   secureApiRouter.get('/userName', async (req, res) => {
+      const authToken = req.cookies[authCookieName];
+      const user = await DB.getUserByToken(authToken);
+      if (user) {
+         res.status(200).send({ name: user.email });
+      } else {
+         res.status(401).send({ msg: 'Unauthorized' });
+      }
+   })
+   ```
 
-7. For a MongoDB query {name: "Mark"}, the matching documents would look like:
+8. For a MongoDB query {name: "Mark"}, the matching documents would look like:
    ```json
    {
      "_id": ObjectId("..."),
@@ -109,9 +120,9 @@ It would output based on the Promise resolution order and any chaining.
    ```
    
 
-8. User passwords should be stored using strong, slow hashing algorithms like bcrypt, Argon2, or PBKDF2, with unique salts for each password. They should never be stored in plain text.
+9. User passwords should be stored using strong, slow hashing algorithms like bcrypt, Argon2, or PBKDF2, with unique salts for each password. They should never be stored in plain text.
 
-9. Example of Node.js WebSocket code:
+10. Example of Node.js WebSocket code:
    Backend:
    ```javascript
    const WebSocket = require('ws');
@@ -144,38 +155,81 @@ It would output based on the Promise resolution order and any chaining.
    Message from server: Connected to WebSocket server
    ```
 
-10. The WebSocket protocol is intended to provide full-duplex, bidirectional communication between a client and server over a single TCP connection, enabling real-time data exchange with low latency.
+   Also...
 
-11. Acronym meanings:
+   ```javascript
+   wss.on('connection', (ws) => {
+    const connection = { id: ++id, alive: true, ws: ws };
+    connections.push(connection);
+
+    // Forward messages to everyone except the sender
+    ws.on('message', function message(data) {
+      connections.forEach((c) => {
+        if (c.id !== connection.id) {
+          c.ws.send(data);
+        }
+      });
+    });
+
+    // Remove the closed connection so we don't try to forward anymore
+    ws.on('close', () => {
+      const pos = connections.findIndex((o, i) => o.id === connection.id);
+      if (pos >= 0) {
+        connections.splice(pos, 1);
+      }
+    });
+
+    // Respond to pong messages by marking the connection alive
+    ws.on('pong', () => {
+      connection.alive = true;
+    });
+  });
+
+  // Keep active connections alive
+  setInterval(() => {
+    connections.forEach((c) => {
+      if (!c.alive) {
+        c.ws.terminate();
+      } else {
+        c.alive = false;
+        c.ws.ping();
+      }
+    });
+  }, 10000);
+```
+
+11. The WebSocket protocol is intended to provide full-duplex, bidirectional communication between a client and server over a single TCP connection, enabling real-time data exchange with low latency.
+
+12. Acronym meanings:
     - JSX: JavaScript XML
     - JS: JavaScript
     - AWS: Amazon Web Services
     - NPM: Node Package Manager
     - NVM: Node Version Manager
 
-12. Without specific React component parameters provided, I cannot generate an accurate answer for the text content.
+13. Without specific React component parameters provided, I cannot generate an accurate answer for the text content.
 
-13. Without specific React components provided, I cannot generate an accurate answer for what would be generated.
+14. Without specific React components provided, I cannot generate an accurate answer for what would be generated.
 
-14. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
+15. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
 
-15. React Hooks are used to add state and other React features to functional components without writing a class.
+16. React Hooks are used to add state and other React features to functional components without writing a class.
 
-16. React Hooks serve the following purposes:
+17. React Hooks serve the following purposes:
     - State Hook: Adds state to functional components
     - Context Hook: Subscribes to React context
     - Ref Hook: Creates a mutable reference
     - Effect Hook: Performs side effects in functional components
     - Performance Hook: Optimizes component rendering
 
-17. Without specific React Router code provided, I cannot explain it accurately.
+18. Without specific React Router code provided, I cannot explain it accurately.
 
-18. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
+19. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
 
-19. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
+20. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
 
-20. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
+21. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
 
-21. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
+22. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
 
-22. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
+23. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
