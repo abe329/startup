@@ -64,3 +64,118 @@ Yes, a web certificate is necessary for HTTPS.
 A DNS A record points to an IP address, not another A record.
 443 for HTTPS, 80 for HTTP, 22 for SSH.
 It would output based on the Promise resolution order and any chaining.
+
+
+## Final Review
+1. The default ports for common protocols are:
+   - HTTP: 80
+   - HTTPS: 443
+   - SSH: 22
+
+2. HTTP status codes indicate:
+   - 300 range: Redirection
+   - 400 range: Client errors
+   - 500 range: Server errors
+
+3. The HTTP Content-Type header allows you to specify the media type of the resource being sent in the HTTP message body. It tells the recipient what kind of data is being sent and how to interpret it.
+
+4. Different types of cookies provide the following security features:
+   - Secure cookie: Only sent over HTTPS connections
+   - HttpOnly cookie: Cannot be accessed by JavaScript
+   - SameSite cookie: Controls when cookies are sent with cross-site requests
+
+5. For an Express middleware logging HTTP GET requests to /api/document, the console output would likely be:
+   ```
+   GET /api/document
+   ```
+   
+
+6. A front-end JavaScript fetch to an Express service might look like:
+   ```javascript
+   fetch('/api/endpoint')
+     .then(response => response.json())
+     .then(data => console.log(data))
+     .catch(error => console.error('Error:', error));
+   ```
+   This would return a Promise that resolves with the response data.
+
+7. For a MongoDB query {name: "Mark"}, the matching documents would look like:
+   ```json
+   {
+     "_id": ObjectId("..."),
+     "name": "Mark",
+     ...
+   }
+   ```
+   
+
+8. User passwords should be stored using strong, slow hashing algorithms like bcrypt, Argon2, or PBKDF2, with unique salts for each password. They should never be stored in plain text.
+
+9. Example of Node.js WebSocket code:
+   Backend:
+   ```javascript
+   const WebSocket = require('ws');
+   const wss = new WebSocket.Server({ port: 8080 });
+   
+   wss.on('connection', function connection(ws) {
+     ws.on('message', function incoming(message) {
+       console.log('received: %s', message);
+     });
+     ws.send('Connected to WebSocket server');
+   });
+   ```
+   
+   Frontend:
+   ```javascript
+   const socket = new WebSocket('ws://localhost:8080');
+   
+   socket.onopen = function(event) {
+     console.log('Connected to WebSocket');
+   };
+   
+   socket.onmessage = function(event) {
+     console.log('Message from server:', event.data);
+   };
+   ```
+   
+   The front end will log:
+   ```
+   Connected to WebSocket
+   Message from server: Connected to WebSocket server
+   ```
+
+10. The WebSocket protocol is intended to provide full-duplex, bidirectional communication between a client and server over a single TCP connection, enabling real-time data exchange with low latency.
+
+11. Acronym meanings:
+    - JSX: JavaScript XML
+    - JS: JavaScript
+    - AWS: Amazon Web Services
+    - NPM: Node Package Manager
+    - NVM: Node Version Manager
+
+12. Without specific React component parameters provided, I cannot generate an accurate answer for the text content.
+
+13. Without specific React components provided, I cannot generate an accurate answer for what would be generated.
+
+14. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
+
+15. React Hooks are used to add state and other React features to functional components without writing a class.
+
+16. React Hooks serve the following purposes:
+    - State Hook: Adds state to functional components
+    - Context Hook: Subscribes to React context
+    - Ref Hook: Creates a mutable reference
+    - Effect Hook: Performs side effects in functional components
+    - Performance Hook: Optimizes component rendering
+
+17. Without specific React Router code provided, I cannot explain it accurately.
+
+18. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
+
+19. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
+
+20. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
+
+21. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
+
+22. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
