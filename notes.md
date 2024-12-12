@@ -73,22 +73,50 @@ It would output based on the Promise resolution order and any chaining.
    - SSH: 22
 
 2. HTTP status codes indicate:
-   - 300 range: Redirection
+   - 300 range: Content redirection or caching
    - 400 range: Client errors
    - 500 range: Server errors
 
-3. The HTTP Content-Type header allows you to specify the media type of the resource being sent in the HTTP message body. It tells the recipient what kind of data is being sent and how to interpret it.
+3. The HTTP Content-Type header allows you to specify the media type of the resource being sent in the HTTP message body. It tells the recipient what kind of data is being sent and how to interpret it. (Standard HTTP headers: Content-Type, Host, Cookie... NOT: Language)
 
 4. Different types of cookies provide the following security features:
    - Secure cookie: Only sent over HTTPS connections
    - HttpOnly cookie: Cannot be accessed by JavaScript
    - SameSite cookie: Controls when cookies are sent with cross-site requests
+   In general, cookies allow servers to save data on clients
 
-5. For an Express middleware logging HTTP GET requests to /api/document, the console output would likely be:
-   ```
-   GET /api/document
-   ```
+5.
+   ```javascript
+   app.use(function (req, res, next) {
+      console.log('paul');
+      next);
+   });
    
+   app.put('/fav/:person', (req, res, next) → {
+      console.olog(ringo');
+      next();
+   });
+   
+   app-get('/fav/:person', (req, res, next) → {
+      console.log(req.params.person);
+      next();
+   });
+   
+   app-get('/*', (req, res, next) → {
+      console.log('john');
+      next ();
+   });
+   
+   app.use((_req, res) → res.send());
+   ```
+   Here's why this sequence occurs:
+- "paul" is logged first because the app.use() middleware is executed for all incoming requests, regardless of the HTTP method or route. This middleware runs first and calls next() to pass control to the next middleware.
+- "george" is logged next because it matches the GET route for '/fav/:person'. The req.params.person value is "george" in this case, which is logged to the console. This route handler also calls next() to continue to the next middleware.
+- "john" is logged last because the app.get('/*', ...) route matches all GET requests. Even though a more specific route has already been matched, Express continues through all middleware and route handlers unless the response is sent or the chain is otherwise terminated.
+The "ringo" console.log is not executed because it's in a PUT route handler, and our request is a GET request.
+
+
+7. What document matches this MongoDB query? ```{ $or: [{name:/J.*/}, Iscore: {$1t:3331}```
 
 6. A front-end JavaScript fetch to an Express service might look like:
    ```javascript
@@ -120,7 +148,7 @@ It would output based on the Promise resolution order and any chaining.
    ```
    
 
-9. User passwords should be stored using strong, slow hashing algorithms like bcrypt, Argon2, or PBKDF2, with unique salts for each password. They should never be stored in plain text.
+9. User passwords should be stored using strong, slow hashing algorithms like bcrypt, Argon2, or PBKDF2, with unique salts for each password. They should never be stored in plain text. Hashing passwords makes them unreadable.
 
 10. Example of Node.js WebSocket code:
    Backend:
@@ -198,7 +226,7 @@ It would output based on the Promise resolution order and any chaining.
   }, 10000);
 ```
 
-11. The WebSocket protocol is intended to provide full-duplex, bidirectional communication between a client and server over a single TCP connection, enabling real-time data exchange with low latency.
+11. The WebSocket protocol is intended to provide full-duplex, bidirectional communication between a client and server over a single TCP connection, enabling real-time data exchange with low latency. WebSocket adds value to HTTP because it is peer to peer, instead of client to server.
 
 12. Acronym meanings:
     - JSX: JavaScript XML
@@ -209,21 +237,50 @@ It would output based on the Promise resolution order and any chaining.
 
 13. A React component using React.useState creates a state variable and a function to update it, allowing the component to manage and update its own state.
 
-14. React Hooks are used to add state and other React features to functional components without writing a class.
+14. What will the component A initially display?    == tacofish
+```javascript
+const B = () → <b>burger</b>;
+const C = () → <b>fish</b›;
+const D = () → <b>taco</b>;
+const A = () → {
+   const [v, updateV] = React.useState(false);
+   const [x, updateX] = React.useState(B);
+   
+   let o = <C />;
+   if (v) {
+      0 = <В />;
+   ｝
 
-15. React Hooks serve the following purposes:
+   React.useEffect (() → update(D), [v]);
+
+   return (
+      <p onClick={() → updateV(true)}>{x}{o}</p>
+   );
+};
+```
+
+16. React Hooks are used to add state and other React features to functional components without writing a class.
+
+17. React Hooks serve the following purposes:
     - State Hook: Adds state to functional components
     - Context Hook: Subscribes to React context
     - Ref Hook: Creates a mutable reference
     - Effect Hook: Performs side effects in functional components
     - Performance Hook: Optimizes component rendering
+   
+18. The code "npm install ws" adds template code for websocket to my Javascript.
 
-16. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
+19. The package.json file in a Node.js project defines the project's dependencies, scripts, version, and other metadata needed for the project to run correctly.
 
-17. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
+20. The fetch function is used to make network requests, typically to retrieve resources from a server. It returns a Promise that resolves with the response to the request.
 
-18. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
+21. Linux Daemon (pm2 is an example):
+    - Executes independent of the user
+    - Starts when the computer is booted
+    - Can fork other processes
 
-19. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
+22. Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server-side, enabling the creation of scalable network applications.
 
-20. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
+23. PM2 (Process Manager 2) is a production process manager for Node.js applications. It helps manage and keep Node.js applications alive in production environments.
+
+24. Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It serves as a frontend build tool and development server.
